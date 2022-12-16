@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.450951286@qq.com'
+group='com.github.734594927@qq.com'
 
 
 android {
