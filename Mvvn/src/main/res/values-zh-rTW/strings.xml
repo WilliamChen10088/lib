@@ -13,4 +13,9 @@
     <string name="app_updater_error_notification_content">點擊關閉通知</string>
     <string name="app_updater_error_notification_content_re_download">點擊重新下載</string>
     <string name="loading">請稍後…</string>
+    <string name="lib_1">請求失敗，請稍後再試</string>
+    <string name="lib_2">解析錯誤，請稍後再試</string>
+    <string name="lib_3">網絡連接錯誤，請稍後重試"</string>
+    <string name="lib_4">證書出錯，請稍後再試"</string>
+    <string name="lib_5">網絡連接超時，請稍後重試"</string>
 </resources>

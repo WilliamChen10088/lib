@@ -21,7 +21,7 @@ import com.icare.mvvm.ext.singleTop
 import com.icare.mvvm.network.manager.NetState
 import com.icare.mvvm.network.manager.NetworkStateManager
 import com.icare.mvvm.util.StyleableToast
-import com.kaopiz.kprogresshud.KProgressHUD
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 
 import me.yokeyword.fragmentation.SupportFragment
 
@@ -35,7 +35,7 @@ import me.yokeyword.fragmentation.SupportFragment
  * @updateDate:     6/17/21 11:10 AM
  */
 abstract class BaseVmFragment<VM : BaseViewModel> : SupportFragment() {
-    val mWaitPorgressDialog by lazy { KProgressHUD.create(requireContext()) }
+    open var mWaitPorgressDialog: QMUITipDialog? = null
     private val handler = Handler()
 
     //是否第一次加载
@@ -200,23 +200,25 @@ abstract class BaseVmFragment<VM : BaseViewModel> : SupportFragment() {
      * @param msg 提示框内容字符串
      */
     open fun showProgressDialog(msg: String = getString(R.string.loading)) {
-        mWaitPorgressDialog!!
-            .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-            .setLabel(msg)
-            .setCancellable(true)
-        mWaitPorgressDialog!!.show()
+        mWaitPorgressDialog =
+            QMUITipDialog.Builder(requireActivity())
+                .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
+                .setTipWord(msg)
+                .create()
+        mWaitPorgressDialog?.show()
     }
 
     open fun showProgressDialog(
         msg: String =  getString(R.string.loading),
         onCancelListener: DialogInterface.OnCancelListener? = null
     ) {
-        mWaitPorgressDialog
-            .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-            .setLabel(msg)
-            .setCancellable(true)
-        mWaitPorgressDialog.show()
-        mWaitPorgressDialog.setCancellable {
+        mWaitPorgressDialog =
+            QMUITipDialog.Builder(requireActivity())
+                .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
+                .setTipWord(msg)
+                .create()
+        mWaitPorgressDialog?.show()
+        mWaitPorgressDialog?.setOnCancelListener {
             onCancelListener?.onCancel(it)
         }
     }

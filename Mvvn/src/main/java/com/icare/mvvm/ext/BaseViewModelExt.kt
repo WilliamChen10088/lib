@@ -3,7 +3,9 @@ package com.icare.mvvm.ext
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
+import com.icare.mvvm.R
 import com.icare.mvvm.base.AccountExceptionEntity
+import com.icare.mvvm.base.BaseApp
 import kotlinx.coroutines.*
 import com.icare.mvvm.base.activity.BaseVmActivity
 import com.icare.mvvm.base.fragment.BaseVmFragment
@@ -91,7 +93,7 @@ fun <T> BaseViewModel.requestNoCheck(
     block: suspend () -> T,
     resultState: MutableLiveData<ResultState<T>>,
     isShowDialog: Boolean = false,
-    loadingMessage: String = "请求网络中..."
+    loadingMessage: String = BaseApp.content!!.getString(R.string.loading)
 ): Job {
     return viewModelScope.launch {
         runCatching {
@@ -118,7 +120,7 @@ fun <T> BaseViewModel.request(
     block: suspend () -> BaseResponse<T>,
     resultState: MutableLiveData<ResultState<T>>,
     isShowDialog: Boolean = false,
-    loadingMessage: String = "请求网络中..."
+    loadingMessage: String = BaseApp.content!!.getString(R.string.loading)
 ): Job {
     return viewModelScope.launch {
         runCatching {
@@ -203,7 +205,7 @@ fun <T> BaseViewModel.requestNoCheck(
     success: (T) -> Unit,
     error: (AppException) -> Unit = {},
     isShowDialog: Boolean = false,
-    loadingMessage: String = "请求网络中..."
+    loadingMessage: String = BaseApp.content!!.getString(R.string.loading)
 ): Job {
     //如果需要弹窗 通知Activity/fragment弹窗
     if (isShowDialog) loadingChange.showDialog.postValue(loadingMessage)

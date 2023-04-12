@@ -1,5 +1,8 @@
 package com.icare.mvvm.network
 
+import com.icare.mvvm.R
+import com.icare.mvvm.base.BaseApp
+
 
 /**
  *
@@ -14,7 +17,7 @@ enum class Error(private val code: Int, private val err: String) {
     /**
      * 未知错误
      */
-    UNKNOWN(1000, "请求失败，请稍后再试"),
+    UNKNOWN(1000, BaseApp.content!!.getString(R.string.lib_1)),
     /**
      * 解析错误
      */

@@ -24,9 +24,6 @@ import com.icare.mvvm.ext.singleTop
 import com.icare.mvvm.network.manager.NetState
 import com.icare.mvvm.network.manager.NetworkStateManager
 import com.icare.mvvm.util.StyleableToast
-import com.icare.mvvm.widget.tencent.SonicRuntimeImpl
-import com.icare.mvvm.widget.tencent.SonicSessionClientImpl
-import com.kaopiz.kprogresshud.KProgressHUD
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 import com.tencent.sonic.sdk.*
 import me.yokeyword.fragmentation.SupportActivity
@@ -143,13 +140,10 @@ abstract class BaseVmActivity<VM : BaseViewModel> : SupportActivity() {
      */
     open fun setPermissions(STORAGE: Array<String>, callback: OnPermissionCallback) {
         XXPermissions.with(this).permission(STORAGE).request(object : OnPermissionCallback {
-            override fun onGranted(permissions: MutableList<String>?, all: Boolean) {
-                callback.onGranted(permissions, all)
-            }
 
-            override fun onDenied(permissions: MutableList<String>?, never: Boolean) {
-                callback.onDenied(permissions, never)
 
+            override fun onGranted(permissions: MutableList<String>, allGranted: Boolean) {
+                callback.onGranted(permissions, allGranted)
             }
 
         })

@@ -1,10 +1,10 @@
 <resources>
 
     <string name="app_updater_start_notification_title">version update</string>
-    <string name="app_updater_start_notification_content">Getting download data...</string>
+    <string name="app_updater_start_notification_content">Getting download data…</string>
 
     <string name="app_updater_progress_notification_title">version update</string>
-    <string name="app_updater_progress_notification_content">Downloading and updating...</string>
+    <string name="app_updater_progress_notification_content">Downloading and updating…</string>
 
     <string name="app_updater_finish_notification_title">Download complete</string>
     <string name="app_updater_finish_notification_content">Click to install</string>
@@ -13,4 +13,9 @@
     <string name="app_updater_error_notification_content">Click to close the notification</string>
     <string name="app_updater_error_notification_content_re_download">Click to re-download</string>
     <string name="loading">Please wait…</string>
+    <string name="lib_1">The request failed, please try again later</string>
+    <string name="lib_2">parsing error, please try again later</string>
+    <string name="lib_3">Network connection error, please try again later"</string>
+    <string name="lib_4">Certificate error, please try again later"</string>
+    <string name="lib_5">The network connection timed out, please try again later"</string>
 </resources>
