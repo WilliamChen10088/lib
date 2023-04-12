@@ -239,17 +239,17 @@ abstract class BaseVmActivity<VM : BaseViewModel> : SupportActivity() {
      *
      * @param msg 提示框内容字符串
      */
-    open fun showProgressDialog(msg: String = "请稍后...") {
+    open fun showProgressDialog(msg: String = getString(R.string.loading)) {
         mWaitPorgressDialog =
             QMUITipDialog.Builder(this)
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
-                .setTipWord("正在加载")
+                .setTipWord(msg)
                 .create()
         mWaitPorgressDialog?.show()
     }
 
     open fun showProgressDialog(
-        msg: String = "请稍后...",
+        msg: String = getString(R.string.loading),
         onCancelListener: DialogInterface.OnCancelListener? = null
     ) {
         if (!isFinishing) {
@@ -283,9 +283,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : SupportActivity() {
         startActivity(Intent(this, clz))
 
     }
-    fun startHome(clz: Class<*>){
 
-    }
     fun startSingleActivity(clz: Class<*>) {
         var intent = Intent(this, clz).singleTop()
         startActivity(intent)

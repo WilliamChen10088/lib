@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.XXPermissions
+import com.icare.mvvm.R
 import com.icare.mvvm.base.viewmodel.BaseViewModel
 import com.icare.mvvm.ext.getVmClazz
 import com.icare.mvvm.ext.singleTop
@@ -188,7 +189,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : SupportFragment() {
      */
     open fun initData() {}
 
-    abstract fun showLoading(message: String = "请求网络中...")
+    abstract fun showLoading(message: String = getString(R.string.loading))
 
     abstract fun dismissLoading()
 
@@ -198,7 +199,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : SupportFragment() {
      *
      * @param msg 提示框内容字符串
      */
-    open fun showProgressDialog(msg: String = "请稍后...") {
+    open fun showProgressDialog(msg: String = getString(R.string.loading)) {
         mWaitPorgressDialog!!
             .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
             .setLabel(msg)
@@ -207,7 +208,7 @@ abstract class BaseVmFragment<VM : BaseViewModel> : SupportFragment() {
     }
 
     open fun showProgressDialog(
-        msg: String = "请稍后...",
+        msg: String =  getString(R.string.loading),
         onCancelListener: DialogInterface.OnCancelListener? = null
     ) {
         mWaitPorgressDialog
