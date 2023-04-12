@@ -18,6 +18,7 @@ import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.XXPermissions
 import com.icare.mvvm.R
 import com.icare.mvvm.base.AccountExceptionEntity
+import com.icare.mvvm.base.BaseApp
 import com.icare.mvvm.base.viewmodel.BaseViewModel
 import com.icare.mvvm.ext.getVmClazz
 import com.icare.mvvm.ext.singleTop
@@ -67,7 +68,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : SupportActivity() {
 
     abstract fun initView(savedInstanceState: Bundle?)
 
-    abstract fun showLoading(message: String = "请求中...")
+    abstract fun showLoading(message: String = getString(R.string.loading))
 
     abstract fun dismissLoading()
     open val mImmersionBar: ImmersionBar by lazy {

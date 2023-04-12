@@ -154,7 +154,7 @@ fun <T> BaseViewModel.request(
     success: (T) -> Unit,
     error: (AppException) -> Unit = {},
     isShowDialog: Boolean = false,
-    loadingMessage: String = "请求网络中..."
+    loadingMessage: String = BaseApp.content!!.getString(R.string.loading)
 ): Job {
     //如果需要弹窗 通知Activity/fragment弹窗
     return viewModelScope.launch {

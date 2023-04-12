@@ -15,7 +15,7 @@
     <string name="loading">Please wait…</string>
     <string name="lib_1">The request failed, please try again later</string>
     <string name="lib_2">parsing error, please try again later</string>
-    <string name="lib_3">Network connection error, please try again later"</string>
-    <string name="lib_4">Certificate error, please try again later"</string>
-    <string name="lib_5">The network connection timed out, please try again later"</string>
+    <string name="lib_3">Network connection error, please try again later</string>
+    <string name="lib_4">Certificate error, please try again later</string>
+    <string name="lib_5">The network connection timed out, please try again later</string>
 </resources>

@@ -1,5 +1,8 @@
 package com.icare.mvvm.network
 
+import com.icare.mvvm.R
+import com.icare.mvvm.base.BaseApp
+
 
 /**
  *
@@ -16,7 +19,7 @@ class AppException : Exception {
     var errorLog: String? //错误日志
 
     constructor(errCode: Int, error: String?, errorLog: String? = "") : super(error) {
-        this.errorMsg = error ?: "请求失败，请稍后再试"
+        this.errorMsg = error ?: BaseApp.content!!.getString(R.string.lib_1)
         this.errCode = errCode
         this.errorLog = errorLog?:this.errorMsg
     }
